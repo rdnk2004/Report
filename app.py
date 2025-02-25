@@ -10,7 +10,7 @@ import tempfile
 import shutil
 from streamlit_quill import st_quill
 
-TEMPLATE_PATH = 'C:/Report - College/templates_doc/workshop_template.docx'  # Path to your report template
+TEMPLATE_PATH = 'workshop_template.docx'  # Path to your report template
 
 def add_underline(run):
     u = OxmlElement('w:u')
