@@ -314,7 +314,6 @@ def format_time_to_24hr(time_input):
             return time_input
 
 # Generate time options for dropdown (12-hour format with 15-minute intervals)
-
 def generate_time_options():
     times = []
     for hour in range(6, 22):  # 6 AM to 10 PM
@@ -322,8 +321,6 @@ def generate_time_options():
             time_str = f"{hour % 12 if hour % 12 != 0 else 12}:{minute:02d} {'AM' if hour < 12 else 'PM'}"
             times.append(time_str)
     return times  # No need to sort as they are already in order
- # This will print the time slots from 6:00 AM to 10:00 PM
-
 
 def main():
     st.title("Event Report Generator")
@@ -348,7 +345,7 @@ def main():
         selected_time = st.selectbox("Select Time", time_options, index=32)  # Default to 9:00 AM
     
     with time_col2:
-        # Manual time input option
+        # Manual time input option with a proper label
         manual_time = st.text_input("Or enter time manually (HH:MM AM/PM or 24-hour format)", 
                                     placeholder="e.g. 9:30 AM or 09:30",
                                     key="manual_time_input")
@@ -372,12 +369,12 @@ def main():
     
     num_participants = st.number_input("Number of Participants", min_value=1)
     
-    # Larger text areas for summary and outcome
+    # Larger text areas for summary and outcome with proper labels
     st.write("Summary of the Event")
-    summary = st.text_area("", height=100, key="summary_input")
+    summary = st.text_area("Summary of the Event", height=100, key="summary_input", label_visibility="collapsed")
     
     st.write("Outcome of the Event")
-    outcome = st.text_area("", height=100, key="outcome_input")
+    outcome = st.text_area("Outcome of the Event", height=100, key="outcome_input", label_visibility="collapsed")
     
     hod_name = st.text_input("Name of the HoD")
     
